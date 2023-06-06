@@ -68,7 +68,6 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       - name: Build images
         uses: docker/build-push-action@v4
-        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           context: .
           platforms: linux/amd64,linux/arm64

@@ -4,15 +4,15 @@ set -euo pipefail
 # Make sure regctl can be invoked
 regctl version
 
-cat > compose.yaml <<EOF
+cat > /tmp/compose.yaml <<EOF
 ---
 services:
   regctl:
     image: ghcr.io/regclient/regctl:edge-alpine
 EOF
 
-composevalidate compose.yaml
+composevalidate /tmp/compose.yaml
 
-composevalidate --platform linux/arm64 --architecture arm64 compose.yaml
+composevalidate --platform linux/arm64 --architecture arm64 /tmp/compose.yaml
 
 echo "Image OK!"
