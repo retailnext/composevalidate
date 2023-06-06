@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "config:base",
+    ":automergeAll",
+    ":gitSignOff",
+    ":semanticCommits",
+    "docker:pinDigests",
+    "regexManagers:githubActionsVersions"
+  ],
+  "automerge": true,
+  "labels": [
+    "dependencies"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "platformAutomerge": true,
+  "postUpdateOptions": [
+    "gomodTidy",
+    "gomodUpdateImportPaths"
+  ]
+}
