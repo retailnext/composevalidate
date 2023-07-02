@@ -10,7 +10,7 @@ COPY ./ ./
 
 RUN CGO_ENABLED=0 go build -o /go/bin/composevalidate -trimpath -ldflags="-s -w" .
 
-FROM ghcr.io/regclient/regctl:edge-alpine@sha256:f89f78a5faf7e8d786bd2ed830184a10bdc2fa11fbe4843e35425051a241bf99
+FROM ghcr.io/regclient/regctl:edge-alpine@sha256:9a2d3ad272d2394cfefc51eb73e28f669f9fa7596a40e4c5c0a82b5055eb5127
 
 COPY --from=build /go/bin/composevalidate /usr/local/bin/
 
